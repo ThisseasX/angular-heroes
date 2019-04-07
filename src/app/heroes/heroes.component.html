@@ -1,7 +1,19 @@
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<ng-container *ngIf="!heroes; then loading; else heroList">
+
+</ng-container>
+
+<ng-template #loading>
+  <h2>Loading...</h2>
+</ng-template>
+
+<ng-template #heroList>
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+</ng-template>
