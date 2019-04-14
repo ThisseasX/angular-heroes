@@ -15,4 +15,12 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return of(HEROES).pipe(delay(200), tap(_ => this.messageService.add('HeroService: fetched heroes')));
   }
+
+  getHero(id: number): Observable<Hero> {
+    return of(HEROES.find(hero => hero.id === id))
+      .pipe(
+      delay(200),
+      tap(_ => this.messageService.add(`HeroService: fetched hero id=${id}`))
+      );
+  }
 }
