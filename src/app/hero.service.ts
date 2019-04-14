@@ -13,6 +13,6 @@ export class HeroService {
   constructor(private messageService: MessageService) { }
 
   getHeroes(): Observable<Hero[]> {
-    return of(HEROES).pipe(delay(2000), tap(_ => this.messageService.add('HeroService: fetched heroes')));
+    return of(HEROES).pipe(delay(200), tap(_ => this.messageService.add('HeroService: fetched heroes')));
   }
 }
