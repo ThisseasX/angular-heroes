@@ -7,13 +7,15 @@ export class MessageService {
 
   messages: string[] = [];
 
-  add(message: string) {
+  add(message: string): void {
     this.messages.push(message);
   }
 
-  clear() {
+  clear(): void {
     this.messages.length = 0;
   }
 
-  constructor() { }
+  isEmpty(): boolean {
+    return this.messages.length === 0;
+  }
 }
