@@ -20,13 +20,11 @@ export class InMemoryDataService extends InMemoryDbService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
+    
     return { heroes };
   }
-
 
   genId(heroes: Hero[]) {
     return heroes.length ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
   }
-
-
 }
